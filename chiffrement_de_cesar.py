@@ -1,19 +1,25 @@
-def chiffrement_cesar(texte, decalage):
-    alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
-    texte_chiffre = ''
-
-    for lettre in texte:
-        if lettre in alphabet:
-            index_lettre = alphabet.index(lettre)
-            index_chiffre = (index_lettre + decalage) % 26
-            lettre_chiffree = alphabet[index_chiffre]
-            texte_chiffre += lettre_chiffree
+def chiffrement_cesar(msg, decalage):
+    resultat = ""
+    for lettre in msg:
+        if lettre.isalpha():
+            majuscule = lettre.isupper()
+            ascii_lettre = ord(lettre)
+            ascii_lettre = (ascii_lettre - ord('A' if majuscule else 'a') + decalage) % 26 + ord('A' if majuscule else 'a')
+            lettre_chiffree = chr(ascii_lettre)
+            resultat += lettre_chiffree
         else:
-            texte_chiffre += lettre
+            resultat += lettre
+    return resultat
 
-    return texte_chiffre
+def saisie_utilisateur():
+    message = input("Entrez le message à chiffrer : ")
+    decalage = int(input("Entrez le décalage souhaité : "))
+    return message, decalage
 
-texte_a_chiffrer = "CECI EST UN MESSAGE SECRET"
-decalage = 3
-texte_chiffre = chiffrement_cesar(texte_a_chiffrer, decalage)
-print("Texte chiffré :",texte_chiffre)
+def afficher_resultats(msg_original, msg_chiffre):
+    print("Message original : ", msg_original)
+    print("Message chiffré : ", msg_chiffre)
+
+message, decalage = saisie_utilisateur()
+message_chiffre = chiffrement_cesar(message, decalage)
+afficher_resultats(message, message_chiffre)
