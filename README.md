@@ -24,3 +24,38 @@ Texte chiffré : DRPKQPT
 Fonctionnalités
 
 	•	Chiffrement de messages en utilisant la méthode de Vigenère.
+
+
+Chiffrement Affine
+
+Ce script Python permet de chiffrer un message en utilisant la méthode de chiffrement affine.
+
+Comment ça marche
+
+L’algorithme chiffre chaque lettre du texte d’entrée selon la formule mathématique : \(E(x) = (ax + b) \mod 26\), où  est l’index de la lettre dans l’alphabet,  et  sont des paramètres spécifiés par l’utilisateur.
+
+	1.	Prérequis
+	•	Python 3 installé
+	2.	Utilisation
+	•	Exécutez le script chiffrement_affine.py.
+	•	Entrez le message à chiffrer lorsque le programme le demande.
+	•	Entrez les valeurs de  et .
+	3.	Exemple
+	•	Exemple d’utilisation :
+
+Entrez le message à chiffrer : HELLO
+Entrez la valeur de 'a' : 5
+Entrez la valeur de 'b' : 8
+Texte chiffré : CMXXA
+
+
+
+Fonctionnalités
+
+	•	Chiffrement de messages en utilisant la méthode de chiffrement affine.
+	•	Gestion des majuscules et des caractères non alphabétiques.
+
+Remarques
+
+	•	Ce script fonctionne avec des lettres majuscules seulement.
+	•	Les valeurs de  et  doivent être des entiers.
